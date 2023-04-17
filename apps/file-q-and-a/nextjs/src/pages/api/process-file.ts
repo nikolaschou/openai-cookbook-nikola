@@ -26,7 +26,7 @@ export default async function handler(
   }
 
   // Create a formidable instance to parse the request as a multipart form
-  const form = new formidable.IncomingForm();
+  const form: any = new formidable.IncomingForm();
   form.maxFileSize = 30 * 1024 * 1024; // Set the max file size to 30MB
 
   try {
@@ -34,7 +34,7 @@ export default async function handler(
       fields: Fields;
       files: Files;
     }>((resolve, reject) => {
-      form.parse(req, (err, fields, files) => {
+      form.parse(req, (err: any, fields: any, files: any) => {
         if (err) {
           reject(err);
         } else {
